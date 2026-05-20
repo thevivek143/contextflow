@@ -1,167 +1,347 @@
-# ContextFlow - Advanced AI Context Manager
+# ContextFlow
 
-A powerful Chrome extension that captures, organizes, and reuses AI conversations with advanced features like auto-summarization, smart tagging, and interactive knowledge graphs.
+> AI Memory Layer for the Modern Web  
+> Capture, organize, search, and reuse conversations across ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and more.
 
-## 🚀 Features
-
-### Core Features
-- **Capture Conversations** - Save AI conversations from ChatGPT, Claude, Gemini, and more
-- **Smart Organization** - Organize capsules with folders and tags
-- **Search & Filter** - Full-text search across all capsules
-- **Auto-Summarization** - AI-powered summaries of conversations
-- **Auto-Tagging** - Intelligent tag suggestions
-- **Duplicate Detection** - Avoid saving similar content
-- **Usage Tracking** - Track how often you use each capsule
-- **Drag & Drop** - Inject capsules into AI chats easily
-
-### Advanced Knowledge Graph
-- **3D Visualization** - Explore your knowledge in 3D space
-- **Multiple Layouts** - Force-directed, Hierarchical, Circular, Radial, Grid
-- **Visual Effects** - Particle effects, glow, gradients, arrows
-- **Smooth Animations** - Professional transitions
-- **Real-time Statistics** - Node and connection analytics
-
-### Export Options
-- **Export as JSON** - Structured data format
-- **Export as TXT** - Human-readable format
-
-## 🎯 Supported Platforms
-
-- ChatGPT (chat.openai.com, chatgpt.com)
-- Claude (claude.ai)
-- Google Gemini (gemini.google.com)
-- Perplexity AI (perplexity.ai)
-- DeepSeek (deepseek.com)
-- Microsoft Copilot (copilot.microsoft.com)
-- Gmail (gmail.com)
-
-## 📦 Installation
-
-### From Source (Development)
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/contextflow.git
-cd contextflow
-```
-
-2. Open Chrome and go to `chrome://extensions/`
-
-3. Enable "Developer mode" (top right)
-
-4. Click "Load unpacked" and select the project folder
-
-5. The ContextFlow icon should appear in your extensions toolbar
-
-### From Chrome Web Store
-
-Coming soon!
-
-## 🎮 Usage
-
-### Capturing Conversations
-
-1. Visit any supported AI platform (ChatGPT, Claude, etc.)
-2. Have a conversation
-3. Click the ContextFlow extension icon
-4. Click "+ New Capsule" to capture the current page
-5. The conversation is saved with auto-generated summary and tags
-
-### Organizing Capsules
-
-- **Folders** - Organize by project or topic
-- **Tags** - Add multiple tags for better searchability
-- **Favorites** - Star important capsules for quick access
-- **Search** - Find capsules by title, content, or tags
-
-### Using Capsules
-
-1. Click a capsule to copy it to clipboard
-2. Paste into any AI chat with Ctrl+V
-3. Or drag capsules directly into chat inputs
-
-### Viewing Knowledge Graph
-
-1. Click the "📊 Graph" button
-2. Explore your knowledge visually
-3. Try different layouts and effects
-4. Click nodes to see details
-
-## 📁 Project Structure
-
-```
-contextflow/
-├── manifest.json           # Extension configuration
-├── background.js           # Service worker
-├── content.js             # Content script
-├── content.css            # Content styles
-├── popup.html             # Popup UI
-├── popup.js               # Popup logic
-├── popup.css              # Popup styles
-├── sidepanel.html         # Side panel UI
-├── sidepanel.js           # Side panel logic
-├── sidepanel.css          # Side panel styles
-├── graph-advanced.html    # Knowledge graph UI
-├── graph-advanced.js      # Graph logic
-├── graph-advanced.css     # Graph styles
-├── icons/                 # Extension icons
-│   ├── icon16.png
-│   ├── icon48.png
-│   └── icon128.png
-└── LICENSE
-```
-
-## 🔧 Development
-
-### Requirements
-- Chrome/Chromium browser
-- Text editor or IDE
-- Git (for version control)
-
-### Building for Distribution
-
-1. **Chrome Web Store:**
-   - Zip the project folder
-   - Go to Chrome Web Store Developer Dashboard
-   - Upload the zip file
-   - Fill in store listing details
-
-2. **Firefox Add-ons:**
-   - Update manifest.json for Firefox compatibility
-   - Submit to Firefox Add-ons store
-
-3. **Edge Add-ons:**
-   - Update manifest.json for Edge compatibility
-   - Submit to Microsoft Edge Add-ons
-
-## 📝 License
-
-MIT License - See LICENSE file for details
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 🐛 Bug Reports
-
-Found a bug? Please open an issue with:
-- Description of the bug
-- Steps to reproduce
-- Expected vs actual behavior
-- Browser and OS information
-
-## 📧 Contact
-
-For questions or suggestions, please open an issue on GitHub.
-
-## 🎉 Acknowledgments
-
-- Inspired by Capsule Hub
-- Built with modern web technologies
-- Icons from system design
+![ContextFlow Banner](https://raw.githubusercontent.com/thevivek143/contextflow/main/assets/banner.png)
 
 ---
 
-**Made with ❤️ for the AI community**
+# 🚀 What is ContextFlow?
 
-**Version 1.2.0**
+ContextFlow is an advanced Chrome Extension that transforms fragmented AI chats into a structured, searchable, reusable knowledge system.
+
+Instead of losing valuable prompts and conversations across different AI platforms, ContextFlow lets you:
+
+- Save AI conversations instantly
+- Create reusable context capsules
+- Generate AI summaries & smart tags
+- Search across conversations
+- Visualize relationships using knowledge graphs
+- Build your own persistent AI memory system
+
+Think of it as:
+
+- 🧠 AI Second Brain
+- 📚 Prompt & Context Manager
+- 🔍 AI Conversation Search Engine
+- 🌐 Knowledge Graph for AI Chats
+- ⚡ Browser-native AI Workspace
+
+---
+
+# ✨ Features
+
+## 📥 AI Conversation Capture
+
+Automatically capture conversations from:
+
+- ChatGPT
+- Claude
+- Gemini
+- Perplexity
+- DeepSeek
+- Microsoft Copilot
+- More platforms coming soon...
+
+---
+
+## 🧠 Smart Capsules
+
+Convert conversations into reusable capsules containing:
+
+- Title
+- Content
+- Summary
+- Tags
+- Metadata
+- Version history
+- Favorites
+
+---
+
+## 🔎 Powerful Search
+
+Find conversations instantly using:
+
+- Keyword search
+- Smart filtering
+- Tags
+- Usage history
+- Favorites
+
+---
+
+## 🏷️ AI-Powered Summaries & Tags
+
+ContextFlow automatically:
+
+- Generates summaries
+- Detects topics
+- Creates smart tags
+- Organizes conversations
+
+---
+
+## 🌐 Advanced Knowledge Graph
+
+Visualize connections between conversations using:
+
+- Force-directed graphs
+- Circular layouts
+- Radial views
+- Relationship mapping
+- Interactive nodes
+
+---
+
+## 📌 Clipboard & Context Management
+
+Save and reuse:
+
+- Prompts
+- AI outputs
+- Clipboard history
+- Frequently used contexts
+
+---
+
+## ⚡ Local-First Architecture
+
+Your data stays local.
+
+- No mandatory cloud backend
+- Browser-native storage
+- Privacy-first approach
+- Fast performance
+
+---
+
+# 🏗️ Architecture
+
+```text
+AI Platforms
+(ChatGPT / Claude / Gemini)
+            │
+            ▼
+Content Script Layer
+(content.js)
+            │
+            ▼
+Background Service Worker
+(background.js)
+            │
+            ▼
+Chrome Local Storage
+            │
+ ┌──────────┴──────────┐
+ ▼                     ▼
+Popup UI          Side Panel UI
+            │
+            ▼
+Knowledge Graph Engine
+```
+
+---
+
+# 📂 Project Structure
+
+```bash
+contextflow/
+│
+├── manifest.json
+├── background.js
+├── content.js
+│
+├── popup.html
+├── popup.js
+├── popup.css
+│
+├── sidepanel.html
+├── sidepanel.js
+├── sidepanel.css
+│
+├── graph-advanced.html
+├── graph-advanced.js
+├── graph-advanced.css
+│
+├── ml.js
+├── ml-bundle.js
+│
+├── package.json
+└── README.md
+```
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
+- HTML
+- CSS
+- JavaScript
+
+## Browser Extension
+- Chrome Extension Manifest V3
+
+## AI / ML
+- Xenova Transformers
+- Local AI inference
+
+## Visualization
+- Interactive graph rendering
+- Dynamic layouts
+
+---
+
+# 🔥 Why ContextFlow?
+
+AI conversations today are:
+
+- Temporary
+- Scattered
+- Hard to search
+- Impossible to organize properly
+
+ContextFlow solves this by creating a persistent AI memory layer across platforms.
+
+---
+
+# 🎯 Vision
+
+We believe future AI workflows need:
+
+- Persistent memory
+- Cross-model context
+- Reusable intelligence
+- Knowledge navigation
+- AI-native workspaces
+
+ContextFlow is building that future.
+
+---
+
+# 📸 Screenshots
+
+## Popup UI
+(Add screenshot here)
+
+## Side Panel
+(Add screenshot here)
+
+## Knowledge Graph
+(Add screenshot here)
+
+---
+
+# ⚙️ Installation
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/thevivek143/contextflow.git
+```
+
+---
+
+## 2. Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 3. Load Extension in Chrome
+
+1. Open Chrome
+2. Go to:
+
+```text
+chrome://extensions/
+```
+
+3. Enable:
+
+- Developer Mode
+
+4. Click:
+
+```text
+Load unpacked
+```
+
+5. Select the project folder
+
+---
+
+# 🚧 Current Status
+
+ContextFlow is currently in active development.
+
+### Planned Features
+
+- Semantic search
+- Embeddings-based retrieval
+- Cross-device sync
+- Cloud backup
+- AI agents memory
+- Team collaboration
+- Voice workflows
+- Smart context injection
+- Multi-browser support
+
+---
+
+# 🔐 Privacy
+
+ContextFlow is designed with a privacy-first architecture.
+
+- Data stored locally
+- No mandatory external servers
+- User-controlled storage
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+If you'd like to improve ContextFlow:
+
+1. Fork the repo
+2. Create a feature branch
+3. Commit changes
+4. Open a pull request
+
+---
+
+# ⭐ Support
+
+If you like this project:
+
+- Star the repository
+- Share feedback
+- Suggest features
+- Contribute improvements
+
+---
+
+# 📜 License
+
+MIT License
+
+---
+
+# 👨‍💻 Creator
+
+Built by Vivek Vardhan
+
+GitHub:
+https://github.com/thevivek143
+
+---
+
+# 🌍 Future of AI Workflows Starts Here
+
+ContextFlow aims to become the operating system layer for AI conversations and memory.
