@@ -3,8 +3,6 @@
 > AI Memory Layer for the Modern Web  
 > Capture, organize, search, and reuse conversations across ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and more.
 
-![ContextFlow Banner]([https://raw.githubusercontent.com/thevivek143/contextflow/blob/main/icons/icon128.png](https://github.com/thevivek143/contextflow/blob/main/icons/icon128.png))
-
 
 
 # 🚀 What is ContextFlow?
