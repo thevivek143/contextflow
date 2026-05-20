@@ -1,0 +1,1060 @@
+/* ContextFlow Content Script Styles - Premium Minimalist UI */
+
+#contextflow-advanced-dock {
+  position: fixed;
+  z-index: 999999;
+  font-family: 'Inter', -apple-system, sans-serif;
+  transition: opacity 0.2s ease;
+  pointer-events: none; /* Initially none until positioned */
+  opacity: 0;
+}
+
+.cf-dock-container {
+  display: flex;
+  align-items: center;
+  background: rgba(9, 9, 11, 0.95); /* Zinc 950 with glass */
+  border: 1px solid #27272a; /* Zinc 800 */
+  border-radius: 9999px;
+  padding: 4px 6px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  color: #fafafa;
+}
+
+@media (prefers-color-scheme: light) {
+  .cf-dock-container {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e4e4e7;
+    color: #09090b;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.cf-dock-section {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 11px;
+  font-weight: 500;
+  color: #a1a1aa; /* Zinc 400 */
+}
+
+.cf-dock-section svg {
+  color: #fafafa;
+}
+
+@media (prefers-color-scheme: light) {
+  .cf-dock-section { color: #71717a; }
+  .cf-dock-section svg { color: #09090b; }
+}
+
+.cf-dock-section:hover {
+  background: #27272a;
+  color: #fafafa;
+}
+
+@media (prefers-color-scheme: light) {
+  .cf-dock-section:hover { 
+    background: #f4f4f5; 
+    color: #09090b;
+  }
+}
+
+.cf-token-tracker {
+  cursor: default;
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', monospace;
+  padding: 6px 10px;
+}
+
+.cf-token-tracker:hover {
+  background: transparent;
+}
+
+.cf-dock-divider {
+  width: 1px;
+  height: 16px;
+  background: #27272a;
+  margin: 0 2px;
+}
+
+@media (prefers-color-scheme: light) {
+  .cf-dock-divider { background: #e4e4e7; }
+}
+
+/* Dialog Styles */
+#contextflow-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+}
+
+.contextflow-dialog-content {
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  width: 90%;
+  max-width: 520px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.08);
+  animation: modalScaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (prefers-color-scheme: dark) {
+  .contextflow-dialog-content {
+    background: #09090b; /* Zinc 950 */
+    color: #fafafa;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes modalScaleIn {
+  from { opacity: 0; transform: scale(0.96) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.contextflow-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  .contextflow-dialog-header { border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+}
+
+.contextflow-dialog-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.contextflow-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #71717a; /* Zinc 500 */
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.contextflow-close:hover {
+  background: #f4f4f5; /* Zinc 100 */
+  color: #18181b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .contextflow-close:hover {
+    background: #27272a; /* Zinc 800 */
+    color: #fafafa;
+  }
+}
+
+.contextflow-dialog-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cf-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.cf-row {
+  display: flex;
+  gap: 16px;
+}
+
+.cf-input-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #3f3f46; /* Zinc 700 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .cf-input-group label { color: #a1a1aa; /* Zinc 400 */ }
+}
+
+.contextflow-dialog-body input[type="text"],
+.contextflow-dialog-body textarea,
+.contextflow-dialog-body select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #09090b;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02) inset;
+}
+
+@media (prefers-color-scheme: dark) {
+  .contextflow-dialog-body input[type="text"],
+  .contextflow-dialog-body textarea,
+  .contextflow-dialog-body select {
+    background-color: #000000;
+    color: #fafafa;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+.contextflow-dialog-body input::placeholder,
+.contextflow-dialog-body textarea::placeholder {
+  color: #a1a1aa; /* Zinc 400 */
+}
+
+.contextflow-dialog-body input[type="text"]:focus,
+.contextflow-dialog-body textarea:focus,
+.contextflow-dialog-body select:focus {
+  outline: none;
+  border-color: #18181b;
+  box-shadow: 0 0 0 1px #18181b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .contextflow-dialog-body input[type="text"]:focus,
+  .contextflow-dialog-body textarea:focus,
+  .contextflow-dialog-body select:focus {
+    border-color: #fafafa;
+    box-shadow: 0 0 0 1px #fafafa;
+  }
+}
+
+.contextflow-dialog-body textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cf-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #3f3f46;
+}
+
+@media (prefers-color-scheme: dark) {
+  .cf-checkbox-wrapper { color: #a1a1aa; }
+}
+
+.cf-checkbox-wrapper input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #09090b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .cf-checkbox-wrapper input[type="checkbox"] { accent-color: #fafafa; }
+}
+
+.contextflow-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.cf-btn-secondary,
+.cf-btn-primary {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  border: none;
+}
+
+.cf-btn-secondary {
+  background: transparent;
+  color: #3f3f46;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cf-btn-secondary:hover {
+  background: #f4f4f5;
+  color: #09090b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .cf-btn-secondary {
+    color: #a1a1aa;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .cf-btn-secondary:hover {
+    background: #27272a;
+    color: #fafafa;
+  }
+}
+
+.cf-btn-primary {
+  background: #09090b;
+  color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.cf-btn-primary:hover {
+  background: #27272a; /* Zinc 800 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .cf-btn-primary {
+    background: #fafafa;
+    color: #09090b;
+  }
+  .cf-btn-primary:hover {
+    background: #e4e4e7; /* Zinc 200 */
+  }
+}
+
+/* Drop Overlay */
+
+#contextflow-drop-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(102, 126, 234, 0.1);
+  border: 3px dashed #667eea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999998;
+  pointer-events: none;
+  font-size: 24px;
+  font-weight: 600;
+  color: #667eea;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Selection Menu */
+#contextflow-selection-menu {
+  position: absolute;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 4px;
+  z-index: 999999;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#contextflow-selection-menu button {
+  background: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4b5563;
+  transition: background 0.2s;
+  white-space: nowrap;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+#contextflow-selection-menu button:hover {
+  background: #f3f4f6;
+}
+
+/* Notification */
+.contextflow-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000001;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.3s ease;
+  max-width: 300px;
+}
+
+.contextflow-notification.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.contextflow-notification.success {
+  border-left: 4px solid #10b981;
+  color: #065f46;
+}
+
+.contextflow-notification.error {
+  border-left: 4px solid #ef4444;
+  color: #991b1b;
+}
+
+.contextflow-notification.info {
+  border-left: 4px solid #3b82f6;
+  color: #1e40af;
+}
+
+.cf-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981; /* Default green */
+  box-shadow: 0 0 4px currentColor;
+  transition: background-color 0.3s ease;
+}
+
+.cf-pill-text {
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  color: #fafafa;
+}
+
+@media (prefers-color-scheme: light) {
+  .cf-pill-text { color: #09090b; }
+}
+
+.cf-slash {
+  color: #a1a1aa;
+  margin: 0 2px;
+}
+
+@media (prefers-color-scheme: light) {
+  .cf-slash { color: #71717a; }
+}
+
+/* Quick Inject & Agent Menus */
+#cf-quick-inject-menu, #cf-agent-menu {
+  position: fixed;
+  z-index: 1000000;
+  width: 320px;
+  max-height: 400px;
+  background: rgba(9, 9, 11, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.cf-menu-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #27272a;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cf-menu-header span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fafafa;
+}
+
+#cf-quick-search {
+  background: #18181b;
+  border: 1px solid #27272a;
+  color: #fafafa;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#cf-quick-search:focus {
+  border-color: #52525b;
+}
+
+.cf-menu-list {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.cf-menu-list::-webkit-scrollbar {
+  width: 6px;
+}
+.cf-menu-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.cf-menu-list::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 3px;
+}
+
+.cf-menu-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #18181b;
+  transition: background 0.1s ease;
+}
+
+.cf-menu-item:hover {
+  background: #27272a;
+}
+
+.cf-menu-item:last-child {
+  border-bottom: none;
+}
+
+.cf-menu-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fafafa;
+  margin-bottom: 4px;
+}
+
+.cf-menu-preview {
+  font-size: 11px;
+  color: #a1a1aa;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cf-empty-menu {
+  padding: 30px 20px;
+  text-align: center;
+  color: #a1a1aa;
+  font-size: 13px;
+}
+
+/* === CMD+K COMMAND PALETTE === */
+#cf-command-palette {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 15vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.cf-palette-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.cf-palette-modal {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  background: rgba(15, 15, 17, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: cfPaletteIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cfPaletteIn {
+  from { opacity: 0; transform: scale(0.98) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.cf-palette-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a1a1aa;
+}
+
+#cf-palette-search {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  margin-left: 12px;
+  outline: none;
+}
+
+#cf-palette-search::placeholder {
+  color: #52525b;
+}
+
+.cf-palette-badge {
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #a1a1aa;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.cf-palette-results {
+  max-height: 350px;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.cf-palette-results::-webkit-scrollbar { width: 0; }
+
+.cf-palette-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #a1a1aa;
+  transition: all 0.1s ease;
+}
+
+.cf-palette-item.selected {
+  background: rgba(102, 126, 234, 0.15);
+  color: #fff;
+}
+
+.cf-palette-item-icon {
+  font-size: 18px;
+  margin-right: 16px;
+  opacity: 0.8;
+}
+.cf-palette-item.selected .cf-palette-item-icon {
+  opacity: 1;
+}
+
+.cf-palette-item-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+.cf-palette-item-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #e4e4e7;
+}
+.cf-palette-item.selected .cf-palette-item-title {
+  color: #fff;
+}
+
+.cf-palette-item-folder {
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  color: #a1a1aa;
+}
+
+.cf-palette-item-preview {
+  font-size: 12px;
+  color: #71717a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cf-palette-item.selected .cf-palette-item-preview {
+  color: #a1a1aa;
+}
+
+.cf-palette-empty {
+  padding: 40px;
+  text-align: center;
+  color: #71717a;
+  font-size: 14px;
+}
+
+.cf-palette-footer {
+  display: flex;
+  gap: 16px;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 11px;
+  color: #71717a;
+}
+
+.cf-palette-footer span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cf-palette-footer kbd {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 10px;
+}
+
+/* Clipboard history button */
+.cf-dock-section.cf-clipboard-btn svg {
+  color: #a1a1aa; /* Zinc 400 */
+}
+.cf-dock-section.cf-clipboard-btn:hover svg {
+  color: #fafafa;
+}
+@media (prefers-color-scheme: light) {
+  .cf-dock-section.cf-clipboard-btn svg {
+    color: #71717a;
+  }
+  .cf-dock-section.cf-clipboard-btn:hover svg {
+    color: #09090b;
+  }
+}
+
+/* In-Chat Win+V Clipboard Panel Styles */
+#cf-clipboard-history-panel {
+  position: fixed;
+  z-index: 1000000;
+  width: 330px;
+  max-height: 480px;
+  background: rgba(9, 9, 11, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  animation: cfClipboardPanelIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #fafafa;
+}
+
+@media (prefers-color-scheme: light) {
+  #cf-clipboard-history-panel {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e4e4e7;
+    color: #09090b;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@keyframes cfClipboardPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+#cf-clipboard-history-panel.cf-hidden {
+  display: none !important;
+}
+
+.cf-clip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #27272a;
+  background: rgba(24, 24, 27, 0.5);
+}
+
+@media (prefers-color-scheme: light) {
+  .cf-clip-header {
+    border-bottom: 1px solid #e4e4e7;
+    background: rgba(244, 244, 245, 0.5);
+  }
+}
+
+.cf-clip-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cf-clip-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cf-clip-action-btn-text {
+  background: none;
+  border: none;
+  color: #ef4444; /* red-500 */
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.cf-clip-action-btn-text:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.cf-clip-close-x {
+  background: none;
+  border: none;
+  color: #71717a;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.cf-clip-close-x:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fafafa;
+}
+
+@media (prefers-color-scheme: light) {
+  .cf-clip-close-x:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #09090b;
+  }
+}
+
+.cf-clip-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 400px;
+}
+
+.cf-clip-list::-webkit-scrollbar {
+  width: 6px;
+}
+.cf-clip-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.cf-clip-list::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 3px;
+}
+@media (prefers-color-scheme: light) {
+  .cf-clip-list::-webkit-scrollbar-thumb {
+    background: #d4d4d8;
+  }
+}
+
+.cf-clip-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #a1a1aa;
+  font-size: 12px;
+  padding: 40px 20px;
+  line-height: 1.5;
+}
+
+.cf-clip-card {
+  background: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+@media (prefers-color-scheme: light) {
+  .cf-clip-card {
+    background: #ffffff;
+    border: 1px solid #e4e4e7;
+  }
+}
+
+.cf-clip-card:hover {
+  border-color: #52525b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (prefers-color-scheme: light) {
+  .cf-clip-card:hover {
+    border-color: #a1a1aa;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.cf-clip-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cf-clip-time {
+  font-size: 10px;
+  color: #71717a;
+  font-weight: 500;
+}
+
+.cf-clip-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cf-clip-card-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.cf-clip-inject-btn {
+  background: #27272a;
+  color: #fafafa;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  gap: 3px;
+  border: 1px solid transparent;
+}
+
+.cf-clip-inject-btn:hover {
+  background: #3f3f46;
+}
+
+@media (prefers-color-scheme: light) {
+  .cf-clip-inject-btn {
+    background: #f4f4f5;
+    color: #09090b;
+    border: 1px solid #e4e4e7;
+  }
+  .cf-clip-inject-btn:hover {
+    background: #e4e4e7;
+  }
+}
+
+.cf-clip-delete-btn {
+  color: #71717a;
+  font-size: 11px;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.cf-clip-delete-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.cf-clip-card-body {
+  font-size: 12px;
+  color: #e4e4e7;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', monospace;
+  max-height: 100px;
+  overflow: hidden;
+}
+
+@media (prefers-color-scheme: light) {
+  .cf-clip-card-body {
+    color: #27272a;
+  }
+}
+
+/* Image Card Styling */
+.cf-clip-card-img-container {
+  width: 100%;
+  max-height: 120px;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid #27272a;
+  background: #09090b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+@media (prefers-color-scheme: light) {
+  .cf-clip-card-img-container {
+    border-color: #e4e4e7;
+    background: #f4f4f5;
+  }
+}
+
+.cf-clip-card-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.cf-clip-card:hover .cf-clip-card-img {
+  transform: scale(1.03);
+}

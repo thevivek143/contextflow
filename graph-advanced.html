@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neural Memory Tree - ContextFlow</title>
+  <link rel="stylesheet" href="graph-advanced.css">
+</head>
+<body>
+  <div class="tree-container">
+    <!-- Header -->
+    <header class="tree-header">
+      <div class="header-left" style="display: flex; align-items: center; gap: 12px;">
+        <img src="icons/icon128.png" alt="ContextFlow" width="32" height="32" style="border-radius: 7px;">
+        <div>
+          <h1>Neural Memory Tree</h1>
+          <span class="tagline">The Obsidian for your AI Conversations</span>
+        </div>
+      </div>
+      <div class="header-right" style="display: flex; gap: 10px; align-items: center;">
+        <button id="open-graph-btn" class="control-btn" title="View Interactive 3D Constellation" style="background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); color: #818cf8; font-weight: 500; font-family: inherit; display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 6px; font-size: 13px; cursor: pointer; transition: all 0.2s;">
+          🌌 3D Graph
+        </button>
+        <button id="close-btn" class="control-btn" title="Close">✕</button>
+      </div>
+    </header>
+
+    <div class="tree-layout">
+      <!-- Left Sidebar: The File Explorer / Tree -->
+      <aside class="tree-sidebar">
+        <div class="sidebar-search">
+          <input type="text" id="tree-search" placeholder="Semantic search..." class="search-input">
+          <div id="ml-status" style="font-size: 10px; color: var(--primary); margin-top: 6px; display: none;">Loading Neural Engine...</div>
+        </div>
+        
+        <div class="tree-views">
+          <button class="view-btn active" data-view="folders">Folders</button>
+          <button class="view-btn" data-view="timeline">Timeline</button>
+          <button class="view-btn" data-view="smart">Smart Groups</button>
+        </div>
+
+        <div class="tree-root" id="tree-root">
+          <!-- Dynamically populated by JS -->
+          <div class="tree-empty">Loading memory pathways...</div>
+        </div>
+      </aside>
+
+      <!-- Main Content: The Document Viewer -->
+      <main class="tree-main">
+        <div id="memory-viewer" class="memory-viewer hidden">
+          <div class="viewer-header">
+            <h2 id="viewer-title">Memory Title</h2>
+            <div class="viewer-actions">
+              <button id="btn-inject-chat" class="action-btn primary" title="Inject into active chat">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                Inject
+              </button>
+              <button id="btn-copy" class="action-btn secondary">Copy</button>
+              <button id="btn-delete" class="action-btn danger">Delete</button>
+            </div>
+          </div>
+          <div class="viewer-meta">
+            <span class="meta-tag" id="viewer-folder">Folder</span>
+            <span class="meta-tag" id="viewer-date">Date</span>
+            <span class="meta-tag" id="viewer-platform">Platform</span>
+          </div>
+          <div class="viewer-content">
+            <pre id="viewer-text">Content goes here...</pre>
+          </div>
+          
+          <div class="viewer-footer">
+            <h3>🔗 Related Neural Connections</h3>
+            <div id="related-memories" class="related-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <div id="viewer-empty" class="viewer-empty-state">
+          <svg viewBox="0 0 24 24" width="64" height="64" stroke="currentColor" stroke-width="1" fill="none" opacity="0.2">
+            <path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <path d="M2 15h10"></path>
+            <path d="M9 18l3-3-3-3"></path>
+          </svg>
+          <p>Select a memory from the Neural Tree</p>
+        </div>
+      </main>
+    </div>
+  </div>
+  
+  <script type="module" src="ml-bundle.js"></script>
+  <script src="graph-advanced.js"></script>
+</body>
+</html>

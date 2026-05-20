@@ -1,0 +1,24 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient Background -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Rounded Rectangle Background -->
+  <rect width="128" height="128" rx="24" fill="url(#grad)"/>
+  
+  <!-- Three Stacked Layers (representing context capsules) -->
+  <g transform="translate(32, 32)">
+    <!-- Top Layer -->
+    <rect x="0" y="0" width="64" height="16" rx="8" fill="white" opacity="0.9"/>
+    
+    <!-- Middle Layer -->
+    <rect x="0" y="24" width="64" height="16" rx="8" fill="white" opacity="0.7"/>
+    
+    <!-- Bottom Layer -->
+    <rect x="0" y="48" width="64" height="16" rx="8" fill="white" opacity="0.5"/>
+  </g>
+</svg>

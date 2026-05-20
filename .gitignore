@@ -1,0 +1,60 @@
+# Documentation files (keep only README.md)
+ADVANCED_GRAPH_GUIDE.md
+CHANGELOG.md
+CHATGPT_FIX.md
+COMPARISON.md
+COMPLETE_FEATURE_LIST.md
+CONSOLE_GUIDE.md
+CONTRIBUTING.md
+CURRENT_STATUS.md
+DIAGNOSTIC.md
+FEATURES.md
+FIXED_CHATGPT_DOMAIN.md
+GRAPH_IMPLEMENTATION_COMPLETE.md
+GRAPH_IMPROVEMENTS.md
+GRAPH_QUICK_START.md
+GRAPH_TEST_GUIDE.md
+HOW_TO_DEBUG.md
+ICONS_READY.md
+INNOVATIVE_FEATURES.md
+INSTALLATION.md
+KNOWLEDGE_GRAPH_GUIDE.md
+NEW_FEATURES_SUMMARY.md
+OVERVIEW.md
+PROJECT_SUMMARY.md
+QUICK_REFERENCE.md
+QUICKSTART.md
+SHARE_EXPORT_GUIDE.md
+START_HERE.md
+STATUS_REPORT.md
+SUCCESS.md
+TEST_CHECKLIST.md
+TEST_EXTENSION.md
+TROUBLESHOOTING.md
+WHATS_NEW.md
+
+# Icon generation files
+icons/generate-icons.html
+icons/CONVERT_SVG_TO_PNG.md
+icons/EASIEST_WAY.md
+icons/HOW_TO_CREATE_ICONS.md
+icons/PLACEHOLDER.txt
+icons/README.md
+
+# IDE
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node modules (if any)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build files
+dist/
+build/
+*.zip
+*.crx
